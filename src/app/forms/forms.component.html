@@ -3,47 +3,45 @@
         <a><label> FORMULAIRE </label></a>
     <form [formGroup]='myForm'>
             
-            <body>
+    <body>
       
        <fieldset>
             <legend align="left"><div id="fieldtitre">Informations :</div></legend>
-        <div class="form-group">
-            <label>Nom :</label>
-            <input type="text" formControlName="Nom" placeholder = "nom" class = "form-control" required>
            
-        </div>
-        <div class="form-group">
+            <div class="form-group">
+                <label>Nom :</label>
+                <input type="text" formControlName="Nom" placeholder = "nom" class = "form-control" required>   
+            </div>
+            <div class="form-group">
                 <label>Prenom : </label>
                 <input type="text" formControlName="Prenom" placeholder = "prenom" class = "form-control" required>
-        </div>
-        <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label><strong>EMail :</strong></label>
                 <input type="email" formControlName="Email" placeholder = "utilisateur@esi.dz" class = "form-control"required>
-        </div>
-    </fieldset>
-    <fieldset>
-        <legend align="left"><div id="fieldtitre">Saisissez vos choix de specialité :</div></legend>
-        <div class="form-group">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend align="left"><div id="fieldtitre">Saisissez vos choix de specialité :</div></legend>
+            <div class="form-group">
                 <label>Choix1 :</label>
                 <select class="form-control"formControlName="Choix1" style="width:300px;" required>
                    
                     <option value="siq">SIQ</option>
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
-                </select>
-
-        </div>
-        <div class="form-group">
+               </select>
+            </div>
+            <div class="form-group">
                 <label>Choix2 :</label>
                 <select class="form-control"formControlName="Choix2" style="width:300px;" required>
                     
                     <option value="siq">SIQ</option>
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
-                </select>
-                
-        </div>
-        <div class="form-group">
+                </select>        
+            </div>
+            <div class="form-group">
                 <label>Choix3 :</label>
                 <select class="form-control"formControlName="Choix3" style="width:300px;" required>
                
@@ -51,11 +49,11 @@
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
                 </select>
-                
-        </div>
-    </fieldset>
+            </div>
+        </fieldset>
         <button type="submit" (click)="ngOnInit()">Valider</button>
         {{myForm.value | json}}
+       
     </body>
     </form>
 </div>

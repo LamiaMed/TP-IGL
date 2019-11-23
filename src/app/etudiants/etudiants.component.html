@@ -1,1 +1,32 @@
-<p>etudiant works!</p>
+<div class="row">
+    <div class="col-md-12 pad-10">
+      <button type="submit" class="btn btn-primary" (click)="goToAddEtudiant()">
+        <span class="glyphicon glyphicon-floppy-disk"></span> Ajout Etudiant
+      </button>
+    </div>
+  </div>
+  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Mtricule</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Choix1:</th>
+      <th>Choix2</th>
+      <th>Choix3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let info of etudiants">
+      <td>{{ info.matricule }}</td>
+      <td>{{ info.nom }}</td>
+      <td>{{ info.prenom }}</td>
+      <td>{{ info.choix1 }}</td>
+      <td>{{ info.choix2 }}</td>
+      <td>{{ info.choix3 }}</td>
+      
+    </tr>
+    </tbody>
+  </table>
+  

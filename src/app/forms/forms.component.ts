@@ -6,6 +6,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss']
 })
+
 export class FormsComponent implements OnInit
  {
   myForm:FormGroup;
@@ -14,8 +15,7 @@ constructor(){}
  
     ngOnInit(){
       this.myForm = new FormGroup({
-        Nom : new FormControl(),
-        Prenom :new FormControl() ,
+       // Mtricule:new FormControl(),
         Email: new FormControl(),
         Choix1 : new FormControl(),
         Choix2 : new FormControl(),

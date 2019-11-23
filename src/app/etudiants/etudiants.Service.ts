@@ -4,20 +4,17 @@ import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
 
 @Injectable()
-export class Admin {
+export class Service {
     constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
     url = 'http://localhost:3000';
     afficherInfo() {
     return this
         .http
-        .get(`${this.url}/Etudiants`);
+        .get(`${this.url}`);
   }
-}
- export class Etudiant {
-    constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
-    url = 'http://localhost:3000';
-    ajouterCoix(data) {
-    this.http.put(`${this.url}/Etudiants`, data)
+
+    ajouterChoix(data) {
+    this.http.put(`${this.url}`, data)
         .subscribe(
         res => {
           console.log(res);

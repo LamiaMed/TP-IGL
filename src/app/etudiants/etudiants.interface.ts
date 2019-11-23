@@ -1,7 +1,7 @@
 export interface info {
     mtricule: String;
     nom: String;
-    prenom: Number;
+    prenom: String;
     adresse_email:String;
     choix1:String;
     choix2:String;

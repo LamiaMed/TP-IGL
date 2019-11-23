@@ -22,19 +22,21 @@ import {
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";
 import {EtudiantComponent} from './etudiants/etudiants.component';
-import {Admin} from "./etudiants/etudiant.Service";
-import {Etudiant} from "./etudiants/etudiant.Service";
+import {Service} from "./etudiants/etudiants.Service";
 import {ToastrModule} from "ngx-toastr";
+import {ConfirmationPopoverModule} from "angular-confirmation-popover";
 
 const appRoutes: Routes = [
-  {path: 'etudiant', component: EtudiantComponent},];
+  {path: 'etudiant', component: EtudiantComponent},
+  { path: 'forms', component: FormsComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    
-    FormsComponent,
-  
+    DashboardComponent,
+    EtudiantComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,7 @@ const appRoutes: Routes = [
     
   ],
   providers: [
-    Etudiant,Admin
+    Service
   ],
   bootstrap: [AppComponent],
   
