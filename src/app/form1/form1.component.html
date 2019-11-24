@@ -1,0 +1,59 @@
+<div class ="form-horizontal pad-10">
+    <form #ajoutMatiereForm="ngForm">
+      <div class="col-md-6 form-group">
+        <label class=" control-label">NOM</label>
+        <div class="col-md-8 no-padding">
+          <input name="NOM" id="NOM" #NOM="ngModel" [(ngModel)]="matieres.libelle" class="form-control" placeholder="" type="text" required />
+          <div *ngIf="NOM.errors && (NOM.dirty || NOM.touched)" class="alert alert-danger">
+            <div [hidden]="!NON.errors.required">
+              Libéllé est requis!
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 form-group">
+        <label class=" control-label">PRENOM</label>
+        <div class="col-md-8 no-padding">
+          <input name="CHOiIX1" id="CHOIX2" #PRENOM="ngModel" [(ngModel)]="matieres.coefficient" class="form-control" placeholder="" type="String" required />
+          <div *ngIf="CHOIX1.errors && (CHOIX1.dirty || CHOIX1.touched)" class="alert alert-danger">
+            <div [hidden]="!CHOiIX1.errors.required">
+              Coefficient est requis!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 form-group">
+        <label class=" control-label">PRENOM</label>
+        <div class="col-md-8 no-padding">
+          <input name="PRENOM" id="PRENOM" #PRENOM="ngModel" [(ngModel)]="matieres.coefficient" class="form-control" placeholder="" type="number" required />
+          <div *ngIf="PRENOM.errors && (PRENOM.dirty || PRENOM.touched)" class="alert alert-danger">
+            <div [hidden]="!PRENOM.errors.required">
+              Coefficient est requis!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 form-group">
+        <label class=" control-label">PRENOM</label>
+        <div class="col-md-8 no-padding">
+          <input name="PRENOM" id="PRENOM" #PRENOM="ngModel" [(ngModel)]="matieres.coefficient" class="form-control" placeholder="" type="number" required />
+          <div *ngIf="PRENOM.errors && (PRENOM.dirty || PRENOM.touched)" class="alert alert-danger">
+            <div [hidden]="!PRENOM.errors.required">
+              Coefficient est requis!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pad-10">
+        <button mwlConfirmationPopover
+                [popoverTitle]="'Confirmation'"
+                [popoverMessage]="'êtes-vous sûr?'"
+                placement="top"
+                (confirm)="ajouterChoix(info)"
+                type="submit" class="btn btn-save btn-primary" [disabled]="!ajoutMatiereForm.valid">
+          <span class="glyphicon glyphicon-floppy-disk"></span> Sauvegarder
+        </button>
+      </div>
+    </form>
+  </div>

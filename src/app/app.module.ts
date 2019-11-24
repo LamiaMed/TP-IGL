@@ -25,10 +25,11 @@ import {EtudiantComponent} from './etudiants/etudiants.component';
 import {Service} from "./etudiants/etudiants.Service";
 import {ToastrModule} from "ngx-toastr";
 import {ConfirmationPopoverModule} from "angular-confirmation-popover";
+import { Form1Component } from './form1/form1.component';
 
 const appRoutes: Routes = [
-  {path: 'etudiant', component: EtudiantComponent},
-  { path: 'forms', component: FormsComponent },
+  {path: 'bb', component: EtudiantComponent},
+  { path: 'aa', component: Form1Component },
 ];
 
 @NgModule({
@@ -36,19 +37,31 @@ const appRoutes: Routes = [
     AppComponent,
     DashboardComponent,
     EtudiantComponent,
-    FormsComponent
+    Form1Component
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatGridListModule,
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
-    ToastrModule.forRoot()
-    
+    ToastrModule.forRoot(),
+    FormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' // set defaults here
+    })
   ],
   providers: [
     Service
