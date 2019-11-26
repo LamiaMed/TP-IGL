@@ -5,8 +5,8 @@ import { FormsComponent } from './forms/forms.component';
 import { ChoicesComponent } from './choices/choices.component';
 
 const routes:Routes=[
-  {path:'',component:SidebarComponent},
-  {path:'forms',component:FormsComponent},
+ { path:'',component:SidebarComponent},
+    {path:'forms',component:FormsComponent},
   {path:'choices',component:ChoicesComponent}
 ]
 
