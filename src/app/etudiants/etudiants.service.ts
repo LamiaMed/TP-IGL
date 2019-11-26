@@ -10,7 +10,7 @@ export class EtudiantService {
   getChoix() {
     return this
       .http
-      .get(`${this.url}/afficher`);
+      .get(`${this.url}/etud/afficher`);
   }
 
   ajouterChoix(data) {
