@@ -22,9 +22,9 @@
       </div>        
 <div class="container">
      <!-- <a><label> FORMULAIRE </label></a>-->   
-    <form [formGroup]='myForm'>
+    <form [formGroup]='myForm'(ngSubmit)="onSubmitForm()">
             
-            <body>
+    <body>
       
        <fieldset>
             <legend align="left"><div id="fieldtitre">Informations :</div></legend>

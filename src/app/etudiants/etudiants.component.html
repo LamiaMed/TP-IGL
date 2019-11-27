@@ -22,9 +22,10 @@
 <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Matricule</th>
+        <th scope="col">Matricul</th>
         <th scope="col">Nom</th>
         <th scope="col">Prenom</th>
+        <th scope="col">Moyenne</th>
         <th scope="col">Choix1</th>
         <th scope="col">Choix2</th>
         <th scope="col">Choix3</th>
@@ -53,9 +54,10 @@
    --> 
    <tbody>
     <tr *ngFor="let etudiant of etudiants">
-      <td>{{ etudiant.Mtricule }}</td>
+      <td>{{ etudiant.Matricul }}</td>
       <td>{{ etudiant.Nom }}</td>
       <td>{{ etudiant.Prenom }}</td>
+      <td>{{ etudiant.Moyenne }}</td>
       <td>{{ etudiant.Choix1 }}</td>
       <td>{{ etudiant.Choix2 }}</td>
       <td>{{ etudiant.Choix3}}</td>

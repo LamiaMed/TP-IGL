@@ -14,12 +14,12 @@ export class EtudiantService {
   }
 
   ajouterChoix(data) {
-    this.http.put(`${this.url}/etud/ajouter`, data)
+    this.http.get(`${this.url}/etud/ajouter`, data)
       .subscribe(
         res => {
           console.log(res);
           this.toastr.success('Votre choix a été inséré avec succès.', 'Success');
-          this.router.navigateByUrl('/etud/affichage');
+          this.router.navigateByUrl('/etudiants');
         },
         err => {
           console.log('Error occured:' , err);
