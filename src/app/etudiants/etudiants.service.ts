@@ -1,30 +1,75 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
+import { Observable, throwError } from 'rxjs';
+import {catchError} from 'rxjs/operators';
+import {Formulaire} from './etudiants.class2';
+
 
 @Injectable()
 export class EtudiantService {
+
+  private url = 'http://localhost:3000';
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
-  url = 'http://localhost:3000';
+ 
+  //*****************pour gérer les erreurs************* */
+  private static handleError(error: HttpErrorResponse) {
+    let e: string;
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      e = 'Une erreur s\'est produite, réessayer ulterieurement';
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      console.error(`Backend returned code ${error.status}`);
+      if (error.status === 401) {
+        e = 'Vous n\'ètes pas autorisé a effectué cette action';
+      } else if (error.status === 409) {
+        e = 'Ce modele existe déja';
+      } else if (error.status === 404) {
+        e = 'Votre marque n\'existe plus';
+      } else {
+        e = 'Une erreur s\'est produite, réessayer ulterieurement';
+      }
+    }
+    return throwError(e);
+  }
+  
   getChoix() {
     return this
       .http
       .get(`${this.url}/etud/afficher`);
   }
 
-  ajouterChoix(data) {
+ ajouterChoix(data) {
     this.http.get(`${this.url}/etud/ajouter`, data)
       .subscribe(
-        res => {
+        (res) => {
           console.log(res);
-          this.toastr.success('Votre choix a été inséré avec succès.', 'Success');
-          this.router.navigateByUrl('/etudiants');
+         return this.toastr.success('Votre choix a été inséré avec succès.', 'Success');
+         // this.router.navigateByUrl('/etudiants');
+         console.log('hellow');
         },
-        err => {
+        (err) => {
           console.log('Error occured:' , err);
-          this.toastr.error(err.message, 'Error occured');
+          return this.toastr.error(err.message, 'Error occured');
         }
       );
   }
+  /*ajouterChoix(body): Observable<Formulaire> {
+    console.log('hellow');
+    return this.http.put<Formulaire>(`${environment.apiUrl}/etud/ajouter`, body).pipe(
+      catchError(EtudiantService.handleError)
+  );
+
+  }*/
+ /* ajouterChoix (data:Formulaire ): Observable<Formulaire> {
+    return this.http.post<Formulaire>(this.apiUrl, data, httpOptions)
+      .pipe(
+        catchError(this.handleError('ajouterMaClasse', monObjet))
+      );
+   }*/
 }

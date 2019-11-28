@@ -3,7 +3,7 @@ import{NgForm, FormControl} from "@angular/forms";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { EtudiantsComponent } from '../etudiants/etudiants.component';
 import {EtudiantService} from "../etudiants/etudiants.service";
-import {Formulaire} from "../etudiants/etudiants.class2";
+import {Etudiant} from "../etudiants/etudiants.class";
 import { Router } from '@angular/router';
 
 @Component({
@@ -58,7 +58,7 @@ export class FormsComponent implements OnInit
   constructor(private etudiantservice:EtudiantService,private formBuilder: FormBuilder, private router: Router) { }
   ngOnInit(){
     this.myForm = this.formBuilder.group({
-      Mtricule:'',
+      Matricul:'',
       Nom: '',
       Prenom: '',
       Email: '',
@@ -69,10 +69,17 @@ export class FormsComponent implements OnInit
   }
   onSubmitForm() {
     const formValue = this.myForm.value;
-    const newEtudiant = new Formulaire()
-    newEtudiant.constuctor(formValue['Mtricul'], formValue['Nom'],formValue['Prenom'], formValue['Email'],formValue['Choix1'],formValue['Choix2'],formValue['Choix3']);
-
-    this.etudiantservice.ajouterChoix(newEtudiant);
-    this.router.navigate(['/etudiants']);
+    const infoEtud = new Etudiant()
+    infoEtud['Matricul']='1'//formValue['Matricul'];
+    infoEtud['Nom']='a'//formValue['Nom'];
+    infoEtud['Prenom']='b'//formValue['Prenom'];
+    infoEtud['Moyenne']='c'//formValue['Email'];
+    infoEtud['Choix1']='d'//formValue['Choix1'];
+    infoEtud['Choix2']='e'//formValue['Choix2'];
+    infoEtud['Choix3']='q'//formValue['Choix3'];
+   // newForm.constuctor(formValue['Matricul'], formValue['Nom'],formValue['Prenom'], formValue['Email'],formValue['Choix1'],formValue['Choix2'],formValue['Choix3']);
+    console.log(`etudiantt:***${infoEtud['Matricul']}`);
+    this.etudiantservice.ajouterChoix(infoEtud);
+   // this.router.navigate(['/etudiants']);
   }
  }
