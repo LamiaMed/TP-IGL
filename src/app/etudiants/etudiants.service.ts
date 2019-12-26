@@ -10,7 +10,7 @@ import {catchError} from 'rxjs/operators';
 @Injectable()
 export class EtudiantService {
 
-  private url = 'http://localhost:3000';
+  private url = 'http://localhost:4200';
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
  
   //*****************pour gérer les erreurs************* */
@@ -25,7 +25,7 @@ export class EtudiantService {
       // The response body may contain clues as to what went wrong,
       console.error(`Backend returned code ${error.status}`);
       if (error.status === 401) {
-        e = 'Vous n\'ètes pas autorisé a effectué cette action';
+        e = 'Vous n\'ètes pas autorisé a effectuer cette action';
       } else if (error.status === 409) {
         e = 'Ce modele existe déja';
       } else if (error.status === 404) {

@@ -23,57 +23,96 @@
      <!-- <a><label> FORMULAIRE </label></a>-->
      <!--rafrichissement autaumatique de la page qui contient la table d'affichage-->  
      <!--<meta http-equiv="refresh" content="30;/etudiants" />--> 
-<form [formGroup]='myForm'(ngSubmit)="onSubmitForm()">
+<form [formGroup]="myForm"(ngSubmit)="onSubmitForm()">
   <body>
     <fieldset>
           <legend align="left"><div id="fieldtitre">Informations :</div></legend>
-            <div class="form-group">
-              <label>Matricul :</label>
-              <input type="text" formControlName="Matricul" placeholder = "matricul" class = "form-control" required>
-            </div>
+          
             <div class="form-group">
               <label>Nom :</label>
-              <input type="text" formControlName="Nom" placeholder = "nom" class = "form-control" required>
+              <input type="text" id ="Nom" formControlName="Nom" placeholder = "nom" class = "form-control" >
+                <div *ngIf="myForm.controls['Nom'].invalid && (myForm.controls['Nom'].dirty || myForm.controls['Nom'].touched)"class="alert alert-danger">
+                <div *ngIf="myForm.controls['Nom'].errors.required">
+                  Le Nom est obligatoire.
+                </div>
+              </div>
             </div>
             <div class="form-group">
                 <label>Prenom : </label>
-                <input type="text" formControlName="Prenom" placeholder = "prenom" class = "form-control" required>
+                <input type="text" id="Prenom" formControlName="Prenom" placeholder = "prenom" class = "form-control">
+                <div *ngIf="myForm.controls['Prenom'].invalid && (myForm.controls['Prenom'].dirty || myForm.controls['Prenom'].touched)"class="alert alert-danger">
+                  <div *ngIf="myForm.controls['Prenom'].errors.required">
+                    Le Prenom est obligatoire.
+                  </div>
+                </div>
+              </div>
+            <div class="form-group">
+              <label>Matricule :</label>
+              <input type="text" id="Matricule" formControlName="Matricule" placeholder = "nn/nnnn" class = "form-control">
+              <div *ngIf="myForm.controls['Matricule'].invalid && (myForm.controls['Matricule'].dirty || myForm.controls['Matricule'].touched)"class="alert alert-danger">
+                <div *ngIf="myForm.controls['Matricule'].errors.required">
+                  Le Matricule est obligatoire.
+                </div>
+              </div> 
             </div>
             <div class="form-group">
                 <label><strong>Email :</strong></label>
-                <input type="email" formControlName="Email" placeholder = "utilisateur@esi.dz" class = "form-control"required>
-            </div>
+                <input type="email" id="Email"formControlName="Email" placeholder = "utilisateur@esi.dz" class = "form-control">
+                <div *ngIf="myForm.controls['Email'].invalid && (myForm.controls['Email'].dirty || myForm.controls['Email'].touched)"class="alert alert-danger">
+                  <div *ngIf="myForm.controls['Email'].errors.required">
+                    L'Email est obligatoire.
+                  </div>
+                  <div *ngIf="myForm.controls['Email'].errors.pattern">
+                    Respectez la forme : Utilisateur@esi.dz !.
+                  </div>
+                </div>
+              </div>
     </fieldset>
     <fieldset>
           <legend align="left"><div id="fieldtitre">Saisissez vos choix de specialité :</div></legend>
             <div class="form-group">
                 <label>Choix1 :</label>
-                <select class="form-control"formControlName="Choix1" style="width:300px;" required>
+                <select class="form-control"id ="Choix1"formControlName="Choix1" style="width:300px;" >
                    
                     <option value="siq">SIQ</option>
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
                 </select>
-            </div>
+                <div *ngIf="myForm.controls['Choix1'].invalid && (myForm.controls['Choix1'].dirty || myForm.controls['Choix1'].touched)"class="alert alert-danger">
+                  <div *ngIf="myForm.controls['Choix1'].errors.required">
+                    Veuillez inserer le Choix Numero1!.
+                  </div>
+                </div>
+              </div>
             <div class="form-group">
                 <label>Choix2 :</label>
-                <select class="form-control"formControlName="Choix2" style="width:300px;" required>
+                <select class="form-control"id = "Choix2"formControlName="Choix2" style="width:300px;" >
                     
                     <option value="siq">SIQ</option>
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
                 </select>
-            </div>
+                <div *ngIf="myForm.controls['Choix2'].invalid && (myForm.controls['Choix2'].dirty || myForm.controls['Choix2'].touched)"class="alert alert-danger">
+                  <div *ngIf="myForm.controls['Choix2'].errors.required ">
+                    Veuillez inserer le Choix Numero2!.
+                  </div>
+                </div>
+              </div>
             <div class="form-group">
                 <label>Choix3 :</label>
-                <select class="form-control"formControlName="Choix3" style="width:300px;" required>
+                <select class="form-control" id = "Choix3"formControlName="Choix3" style="width:300px;" >
                     <option value="siq">SIQ</option>
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
                 </select>       
-            </div>
+                <div *ngIf="myForm.controls['Choix3'].invalid && (myForm.controls['Choix3'].dirty || myForm.controls['Choix3'].touched)"class="alert alert-danger">
+                  <div *ngIf="myForm.controls['Choix3'].errors.required">
+                    Veuillez inserer le Choix Numero3!.
+                  </div>
+                </div>          
+              </div>
     </fieldset>
-        <button type="submit" class="btn btn-primary">Valider</button>
+        <button type="submit" [disabled]="myForm.invalid" classe="btn btn-primary">Valider</button>
         {{myForm.value | json}}
   </body>
 </form>

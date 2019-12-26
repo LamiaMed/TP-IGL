@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{NgForm, FormControl} from "@angular/forms";
+import{NgForm, FormControl, Validators} from "@angular/forms";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { EtudiantsComponent } from '../etudiants/etudiants.component';
 import {EtudiantService} from "../etudiants/etudiants.service";
@@ -18,19 +18,19 @@ export class FormsComponent implements OnInit
   constructor(private etudiantservice:EtudiantService,private formBuilder: FormBuilder, private router: Router) { }
   ngOnInit(){
     this.myForm = this.formBuilder.group({
-      Matricul:'',
-      Nom: '',
-      Prenom: '',
-      Email: '',
-      Choix1: '',
-      Choix2: '',
-      Choix3: ''
+      Matricule:['',Validators.required],
+      Nom: ['',Validators.required],
+      Prenom: ['',Validators.required],
+      Email: ['',Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9]+$')])],
+      Choix1: ['',Validators.required],
+      Choix2: ['',Validators.required],
+      Choix3: ['',Validators.required],
     });
   }
   onSubmitForm() {
     const formValue = this.myForm.value;
     const infoEtud = new Etudiant()
-    infoEtud['Matricul']=formValue['Matricul'];
+    infoEtud['Matricule']=formValue['Matricule'];
     infoEtud['Nom']=formValue['Nom'];
     infoEtud['Prenom']=formValue['Prenom'];
     infoEtud['Moyenne']=formValue['Email'];
