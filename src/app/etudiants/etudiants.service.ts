@@ -5,7 +5,6 @@ import {Router} from "@angular/router";
 import {environment} from "../../environments/environment";
 import { Observable, throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {Formulaire} from './etudiants.class2';
 
 
 @Injectable()
@@ -45,13 +44,12 @@ export class EtudiantService {
   }
 
  ajouterChoix(data) {
-    this.http.get(`${this.url}/etud/ajouter`, data)
+    this.http.put(`${this.url}/etud/ajouter`, data)
       .subscribe(
         (res) => {
           console.log(res);
          return this.toastr.success('Votre choix a été inséré avec succès.', 'Success');
          // this.router.navigateByUrl('/etudiants');
-         console.log('hellow');
         },
         (err) => {
           console.log('Error occured:' , err);
@@ -59,17 +57,5 @@ export class EtudiantService {
         }
       );
   }
-  /*ajouterChoix(body): Observable<Formulaire> {
-    console.log('hellow');
-    return this.http.put<Formulaire>(`${environment.apiUrl}/etud/ajouter`, body).pipe(
-      catchError(EtudiantService.handleError)
-  );
-
-  }*/
- /* ajouterChoix (data:Formulaire ): Observable<Formulaire> {
-    return this.http.post<Formulaire>(this.apiUrl, data, httpOptions)
-      .pipe(
-        catchError(this.handleError('ajouterMaClasse', monObjet))
-      );
-   }*/
+  
 }

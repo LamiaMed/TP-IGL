@@ -22,7 +22,6 @@ import {
 } from '@angular/material';
 import {EtudiantService} from "./etudiants/etudiants.service";
 import { EtudiantsComponent } from './etudiants/etudiants.component';
-import { ChoicesComponent } from './choices/choices.component';
 import { FormsComponent } from './forms/forms.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -34,8 +33,6 @@ import {LayoutModule} from '@angular/cdk/layout';
     FormsComponent,
     
     SidebarComponent,
-    
-    ChoicesComponent,
     
     EtudiantsComponent,
   

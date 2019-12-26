@@ -1,55 +1,52 @@
 
 <div class="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        
-      <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-       <li class="nav-item active">
-         <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" routerLink="/">Features</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" routerLink="/">Pricing</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link disabled" routerLink="/">Disabled</a>
-       </li>
-      </ul>
-      </div>
-      </nav>
-      </div>        
-<div class="container">
-     <!-- <a><label> FORMULAIRE </label></a>-->   
-    <form [formGroup]='myForm'(ngSubmit)="onSubmitForm()">
-            
-    <body>
-      
-       <fieldset>
-            <legend align="left"><div id="fieldtitre">Informations :</div></legend>
-        <div class="form-group">
-            <label>Matricul :</label>
-            <input type="text" formControlName="Matricul" placeholder = "matricul" class = "form-control" required>
-           
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">   
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+             <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/">Features</a>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" routerLink="/">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" routerLink="/">Disabled</a>
+            </li>
+          </ul>
         </div>
-        <div class="form-group">
-          <label>Nom :</label>
-          <input type="text" formControlName="Nom" placeholder = "nom" class = "form-control" required>
-         
-      </div>
-        <div class="form-group">
+      </nav>
+</div>        
+<div class="container">
+     <!-- <a><label> FORMULAIRE </label></a>-->
+     <!--rafrichissement autaumatique de la page qui contient la table d'affichage-->  
+     <!--<meta http-equiv="refresh" content="30;/etudiants" />--> 
+<form [formGroup]='myForm'(ngSubmit)="onSubmitForm()">
+  <body>
+    <fieldset>
+          <legend align="left"><div id="fieldtitre">Informations :</div></legend>
+            <div class="form-group">
+              <label>Matricul :</label>
+              <input type="text" formControlName="Matricul" placeholder = "matricul" class = "form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Nom :</label>
+              <input type="text" formControlName="Nom" placeholder = "nom" class = "form-control" required>
+            </div>
+            <div class="form-group">
                 <label>Prenom : </label>
                 <input type="text" formControlName="Prenom" placeholder = "prenom" class = "form-control" required>
-        </div>
-        <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label><strong>Email :</strong></label>
                 <input type="email" formControlName="Email" placeholder = "utilisateur@esi.dz" class = "form-control"required>
-        </div>
+            </div>
     </fieldset>
     <fieldset>
-        <legend align="left"><div id="fieldtitre">Saisissez vos choix de specialité :</div></legend>
-        <div class="form-group">
+          <legend align="left"><div id="fieldtitre">Saisissez vos choix de specialité :</div></legend>
+            <div class="form-group">
                 <label>Choix1 :</label>
                 <select class="form-control"formControlName="Choix1" style="width:300px;" required>
                    
@@ -57,9 +54,8 @@
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
                 </select>
-
-        </div>
-        <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label>Choix2 :</label>
                 <select class="form-control"formControlName="Choix2" style="width:300px;" required>
                     
@@ -67,22 +63,18 @@
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
                 </select>
-                
-        </div>
-        <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label>Choix3 :</label>
                 <select class="form-control"formControlName="Choix3" style="width:300px;" required>
-               
                     <option value="siq">SIQ</option>
                     <option value="sil">SIL</option>
                     <option value="sit">SIT</option>
-                </select>
-                
-        </div>
+                </select>       
+            </div>
     </fieldset>
-        <!--<button type="submit" (click)="ngOnInit()">Valider</button>-->
         <button type="submit" class="btn btn-primary">Valider</button>
         {{myForm.value | json}}
-    </body>
-    </form>
+  </body>
+</form>
 </div>
