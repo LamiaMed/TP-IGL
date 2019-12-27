@@ -1,6 +1,6 @@
 
   export class Etudiant {
-    private  Matricule: String;
+    private  Matricul: String;
     private  Nom: String;
     private  Prenom: String;
     private  Moyenne: Number;

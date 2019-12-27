@@ -1,6 +1,6 @@
 export class Formulaire {
   
-    private  Matricule: String;
+    private  Matricul: String;
     private  Nom: String;
     private  Prenom: String;
     private  Email: String;

@@ -18,7 +18,7 @@ export class FormsComponent implements OnInit
   constructor(private etudiantservice:EtudiantService,private formBuilder: FormBuilder, private router: Router) { }
   ngOnInit(){
     this.myForm = this.formBuilder.group({
-      Matricule:['',Validators.required],
+      Matricul:['',Validators.required],
       Nom: ['',Validators.required],
       Prenom: ['',Validators.required],
       Email: ['',Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9]+$')])],
@@ -30,7 +30,7 @@ export class FormsComponent implements OnInit
   onSubmitForm() {
     const formValue = this.myForm.value;
     const infoEtud = new Etudiant()
-    infoEtud['Matricule']=formValue['Matricule'];
+    infoEtud['Matricul']=formValue['Matricul'];
     infoEtud['Nom']=formValue['Nom'];
     infoEtud['Prenom']=formValue['Prenom'];
     infoEtud['Moyenne']=formValue['Email'];
