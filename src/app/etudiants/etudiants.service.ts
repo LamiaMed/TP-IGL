@@ -14,7 +14,7 @@ export class EtudiantService {
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
  
   //*****************pour gérer les erreurs************* */
-  private static handleError(error: HttpErrorResponse) {
+ /* private static handleError(error: HttpErrorResponse) {
     let e: string;
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -35,7 +35,7 @@ export class EtudiantService {
       }
     }
     return throwError(e);
-  }
+  }*/
   
   getChoix() {
     return this
@@ -48,12 +48,12 @@ export class EtudiantService {
       .subscribe(
         (res) => {
           console.log(res);
-         return this.toastr.success('Votre choix a été inséré avec succès.', 'Success');
+          this.toastr.success('Votre choix a été inséré avec succès.', 'Success');
          // this.router.navigateByUrl('/etudiants');
         },
         (err) => {
           console.log('Error occured:' , err);
-          return this.toastr.error(err.message, 'Error occured');
+          this.toastr.error(err.message, 'Error occured');
         }
       );
   }

@@ -38,6 +38,6 @@ export class FormsComponent implements OnInit
     infoEtud['Choix2']=formValue['Choix2'];
     infoEtud['Choix3']=formValue['Choix3'];
     this.etudiantservice.ajouterChoix(infoEtud);
-    this.router.navigate(['/etudiants']);
+   // this.router.navigate(['/etudiants']);
   }
  }
