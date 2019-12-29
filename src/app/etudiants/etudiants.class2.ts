@@ -1,10 +1,7 @@
-export class Formulaire {
+export class Email{
   
-    private  Matricul: String;
-    private  Nom: String;
-    private  Prenom: String;
-    private  Email: String;
-    private  Choix1: String;
-    private  Choix2: String;
-    private  Choix3: String;
+    private  destination: String;
+    private  subject: String;
+    private  message: String;
+    
 }
