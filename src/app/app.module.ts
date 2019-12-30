@@ -26,6 +26,7 @@ import { EtudiantsComponent } from './etudiants/etudiants.component';
 import { FormsComponent } from './forms/forms.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {LayoutModule} from '@angular/cdk/layout';
+import { AcceuilComponent } from './acceuil/acceuil.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     SidebarComponent,
     
     EtudiantsComponent,
+    
+    AcceuilComponent,
   
   ],
   imports: [

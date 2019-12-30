@@ -54,8 +54,8 @@ export class FormsComponent implements OnInit
     infoEtud['Choix3']=formValue['Choix3'];
     const mail=new Email();
     mail['destination']=formValue['Email'];
-    mail['subject']="choix de spécialité"
-    mail['message']="votre choix est bien transmet"
+    mail['subject']="Choix de spécialité"
+    mail['message']="Vos choix ont été bien transmis"
     
     if(this.code==code1)
     {
@@ -63,11 +63,12 @@ export class FormsComponent implements OnInit
      // this.router.navigate(['/etudiants']);
     }else{
       //this.myForm.invalid ;   
-        document.getElementById('1').innerHTML = "Un email sera envoué,Veuillez vérifier votre code";
+        //document.getElementById('1').innerHTML = "Un email sera envoyé,Veuillez vérifier votre code";
+         alert("Un email vous sera envoyé, veuillez inserer le code que vous avez reçu !");
         // On l'efface 8 secondes plus tard
-        setTimeout(function() {
-        document.getElementById('1').innerHTML = "";
-        },8000);
+       // setTimeout(function() {
+       // document.getElementById('1').innerHTML = "";
+        //},8000);
     } 
   }
 }

@@ -1,5 +1,9 @@
 
 <div class="content">
+  
+
+
+  
       <nav class="navbar navbar-expand-lg navbar-light bg-light">   
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
@@ -70,13 +74,16 @@
               <div id="1"></div>
             <div class="form-group">
                 <div class="col-sm-10">
-                  <button type="submit" (click)="confirmer()"><span><i class="fa fa-user-plus" aria-hidden="true"></i></span> Confirmer </button> 
+                  <button id="confirmer" type="submit" [disabled]="myForm.controls['Email'].invalid"(click)="confirmer()"><span><i class="fa fa-user-plus" aria-hidden="true"></i></span> Confirmer </button> 
                   <!--<button type="submit" name="confirm"class="btn btn-primary">Confirmer</button>-->
+                  
                 </div>
+                
             </div>
+            
             <div class="form-group">
               <label>Code de confirmation:</label>
-              <input type="text" id ="Code" formControlName="Code" placeholder = "Entrer le code de confirmation" class = "form-control" >
+              <input type="text" id ="Code" formControlName="Code" placeholder = "Entrez le code de confirmation" class = "form-control" >
               <div *ngIf="myForm.controls['Code'].invalid && (myForm.controls['Code'].dirty || myForm.controls['Code'].touched)"class="alert alert-danger">
                 <div *ngIf="myForm.controls['Code'].errors.required">
                   Le Code de confirmation est obligatoire.
@@ -128,8 +135,8 @@
                 </div>          
               </div>
     </fieldset>
-        <button type="submit" [disabled]="myForm.invalid" classe="btn btn-primary">Valider</button>
-        {{myForm.value | json}}
+        <button id ="valider"type="submit" [disabled]="myForm.invalid" classe="btn btn-primary">Valider</button>
+
   </body>
 </form>
 </div>
