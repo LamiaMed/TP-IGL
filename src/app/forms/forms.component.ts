@@ -35,7 +35,7 @@ export class FormsComponent implements OnInit
     });
   }
   confirmer(){
-    alert("Un email vous sera envoyé, veuillez inserer le code que vous avez reçu !");
+    alert("Un email vous sera envoyé, veuillez inserer le code que vous allez reçu !");
     const email=new Email();
     email['destination']= this.myForm.value['Email'];
     email['subject']="Email de confitmation de choix de spécialité 2CS";
@@ -61,15 +61,8 @@ export class FormsComponent implements OnInit
     if(this.code==code1)
     {
       this.etudiantservice.ajouterChoix(infoEtud,mail);
-     // this.router.navigate(['/etudiants']);
     }else{
-      //this.myForm.invalid ;   
-       // document.getElementById('1').innerHTML = "Un email sera envoyé,Veuillez vérifier votre code";
-        alert("Le code que vous avez inserez est incorrecte !");
-        // On l'efface 8 secondes plus tard
-      // setTimeout(function() {
-       // document.getElementById('1').innerHTML = "";
-        //},8000);
+      alert("Le code que vous avez inseré est incorrect !");
     } 
   }
 }
