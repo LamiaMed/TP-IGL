@@ -1,0 +1,48 @@
+a{
+    display: inline-block;
+}
+samp{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 100%;
+    left: 220px;
+    top:110px;
+    position : relative;
+}
+span{
+    font-weight: bold;
+    left: 500px;
+    top:100px;
+    position : relative;
+}
+#admin{
+   
+    top:100px; left:120px;
+     width:240px;
+       position: relative;
+  
+}
+
+#etud{
+   top:195px; left:900px;  width:240px;
+ position: absolute;
+}
+legend{
+    
+    font-weight:bold ;
+}
+footer{
+
+    background:#ccc;
+    
+    position:absolute;
+    
+    bottom:0;
+   
+    width:80%;
+    
+    padding-top:20px;
+    
+    height:60px;
+    
+    }

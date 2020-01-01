@@ -25,13 +25,12 @@ export class EtudiantService {
       .subscribe(
         (res) => {
           console.log(res);
-          this.toastr.success('Votre choix a été inséré avec succès.', 'Success');
-         // this.router.navigateByUrl('/etudiants');
+          this.toastr.success('Votre choix a été inséré avec succès.');
           this.envoyerEmail(mail);
         },
         (err) => {
           console.log('Error occured:' , err);
-          this.toastr.error(err.message, 'Error occured');
+          this.toastr.error(err.message, 'Error occured,soyez sure de votre Matricul!');
         }
       );
   }
@@ -40,11 +39,11 @@ export class EtudiantService {
       .subscribe(
         (res) => {
           console.log(res);
-          this.toastr.success('un email de confirmation est envoyé.', 'Success');
+          this.toastr.success('un email de confirmation est envoyé.');
         },
         (err) => {
           console.log('Error occured:' , err);
-          this.toastr.error(err.message, 'Error occured');
+          this.toastr.error(err.message, 'Error occured lors de lenvoie du mail');
         }
       );
 
