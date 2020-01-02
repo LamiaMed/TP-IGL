@@ -10,9 +10,15 @@ import {Router} from "@angular/router";
 })
 export class EtudiantsComponent implements OnInit {
   etudiants:Etudiant[];
-
+/**
+ * 
+ * @param etudiantService 
+ * @param router 
+ */
   constructor(private etudiantService: EtudiantService, private router: Router){} 
-
+/**
+ * Une methode de angular pour initialiser les attributs de etudiant.
+ */
   ngOnInit() {
   this.etudiantService
       .getChoix()
@@ -21,7 +27,9 @@ export class EtudiantsComponent implements OnInit {
         console.log('liste',this.etudiants);
       });
   }
-
+/**
+ * Une methode qui nous permet de rediriger l'utilisateur vers forms.
+ */
   goToAddMatiere () {
     this.router.navigateByUrl('/forms');
   }

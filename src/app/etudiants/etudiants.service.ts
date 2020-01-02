@@ -13,13 +13,21 @@ export class EtudiantService {
   private url = 'http://localhost:3000';
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
  
- 
+ /**
+  * C'est une methode qui envoie la requete http 
+  * à la route"/afficher"" (backend) qui récupére le contenu de la table étudiant de la bdd.
+  * @returns un tableau de Etudiant.
+  */
   getChoix() {
     return this
       .http
       .get(`${this.url}/etud/afficher`);
   }
-
+/**
+ * Une methode qui envoie la requete http à la route "/ajouter" (backend) qui mis à jour les choix de l'étudiant.
+ * @param data de type Formulaire
+ * @param mail de type Email
+ */
  ajouterChoix(data,mail) {
     this.http.put(`${this.url}/etud/ajouter`, data)
       .subscribe(
@@ -34,6 +42,11 @@ export class EtudiantService {
         }
       );
   }
+  /**
+   * Une méthode qui envoie une requete http à la
+   * route envoyer email dans le backend.
+   * @param data de type Formulaire
+   */
   envoyerEmail(data){
     this.http.post(`${this.url}/etud/email`, data)
       .subscribe(

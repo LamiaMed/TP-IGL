@@ -21,7 +21,16 @@ export class FormsComponent implements OnInit
  {
   myForm:FormGroup;
   code:Number;
+  /**
+   * 
+   * @param etudiantservice 
+   * @param formBuilder 
+   * @param router 
+   */
   constructor(private etudiantservice:EtudiantService,private formBuilder: FormBuilder, private router: Router) { }
+ /**
+  * Une fonction de angular pour initialiser les inputs du from.
+  */
   ngOnInit(){
     this.myForm = this.formBuilder.group({
       Matricul:['',Validators.required],
@@ -34,6 +43,9 @@ export class FormsComponent implements OnInit
       Code:['',Validators.required],
     });
   }
+  /**
+   * Une methode pour envoyer un code à l'utilisateur contenant un code de confirmation unique.
+   */
   confirmer(){
     alert("Un email vous sera envoyé, veuillez inserer le code que vous allez reçu !");
     const email=new Email();
@@ -43,6 +55,10 @@ export class FormsComponent implements OnInit
     email['message']="Votre code de confirmation :"+this.code;
     this.etudiantservice.envoyerEmail(email);
   }
+  /**
+   * Une methode pour créer un objet étudiant et 
+   * initialiser ses attributs avec les données introduites dans le formulaire
+   */
   onSubmitForm() {
     const formValue = this.myForm.value;
     const infoEtud = new Etudiant();
