@@ -18,6 +18,16 @@ a:focus{
 	transition: all 0.3s;
 }
 
+footer{
+    p{
+       position: absolute;
+       margin-top: auto;   
+        width: 100%;
+        text-align: center;
+    }
+   
+}
+
 
 .navbar{
 	padding: 10px 10px;
@@ -50,7 +60,7 @@ a:focus{
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    min-height: 700px;
+    min-height: 900px;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
@@ -79,11 +89,13 @@ a:focus{
 #sidebar ul li a{
 	padding: 10px;
 	font-size: 1.1em;
-	display: block;
+    display: block;
+    
 }
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
+  
 }
 
 #sidebar ul li.active>a,
