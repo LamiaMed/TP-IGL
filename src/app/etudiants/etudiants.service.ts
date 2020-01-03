@@ -30,7 +30,7 @@ export class EtudiantService {
  * @param mail de type Email
  */
  ajouterChoix(data,mail) {
-    this.http.put(`${this.url1}/etud1/ajouter`, data)
+    this.http.put(`${this.url2}/etud2/ajouter`, data)
       .subscribe(
         (res) => {
           console.log(res);
