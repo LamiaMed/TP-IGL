@@ -45,7 +45,7 @@ export class EtudiantService {
   }
   /**
    * Une méthode qui envoie une requete http à la
-   * route envoyer email dans le backend.
+   * route "/envoyer" email dans le backend.
    * @param data de type Email
    */
   envoyerEmail(data){
